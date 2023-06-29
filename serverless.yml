@@ -1,6 +1,11 @@
 service: mail-test
 frameworkVersion: "3"
 
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+  - serverless-dotenv-plugin
+
 resources:
   - ${file(./resources/sqs.yml)}
 
@@ -13,11 +18,12 @@ custom:
   baseName: ${self:service}-${self:provider.region}
   sqs-main: ${self:custom.baseName}-message-queue
   sqs-main-dlq: ${self:custom.baseName}-message-dead-letter-queue
-  webpack:
-    webpackConfig: 'webpack.config.js' 
-    includeModules: true 
-    packager: 'yarn'
-    excludeFiles: src/**/*.test.js
+  esbuild:
+    packager: 'pnpm'
+    bundle: true
+    minify: true
+    sourcemap: false
+    keepNames: true
 
 functions:
   sqsMessageExecution:
@@ -29,7 +35,4 @@ functions:
             Fn::GetAtt:
               - MessageQueue
               - Arn
-plugins:
-  - serverless-webpack
-  - serverless-offline
-  - serverless-dotenv-plugin
+
