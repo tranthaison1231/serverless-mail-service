@@ -8,6 +8,12 @@ dependencies:
   '@aws-sdk/client-s3':
     specifier: ^3.362.0
     version: 3.362.0
+  '@middy/core':
+    specifier: ^4.5.2
+    version: 4.5.2
+  '@middy/sqs-partial-batch-failure':
+    specifier: ^4.5.2
+    version: 4.5.2
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
@@ -2047,6 +2053,16 @@ packages:
   /@kwsites/promise-deferred@1.1.1:
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
     dev: true
+
+  /@middy/core@4.5.2:
+    resolution: {integrity: sha512-UPShFdYeXFFBpNQAjYtxyXIRZi7RLyyY09zA6jvH1NfuGhf4VvEyVluG3BcZj+HXOOO4dHevYxvM8XvQgivONQ==}
+    engines: {node: '>=16'}
+    dev: false
+
+  /@middy/sqs-partial-batch-failure@4.5.2:
+    resolution: {integrity: sha512-0xsxcWrBT/woFlJ1HPBfECRU/JpNzA7jWCP6WCujlTUhm6wxBNqAaLtT3a2vq9x3sWBQs6Sew2PdU8T/6G0zew==}
+    engines: {node: '>=16'}
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
