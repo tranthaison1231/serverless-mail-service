@@ -1,0 +1,16 @@
+Resources:
+  MessageQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: ${self:custom.sqs-main}
+      VisibilityTimeout: 910
+      RedrivePolicy:
+        deadLetterTargetArn:
+          Fn::GetAtt:
+            - MessageDeadLetterQueue
+            - Arn
+        maxReceiveCount: 4
+  MessageDeadLetterQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: ${self:custom.sqs-main-dlq}
