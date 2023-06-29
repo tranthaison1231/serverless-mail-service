@@ -1,0 +1,20 @@
+service: mail-test
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-southeast-1
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js' 
+    includeModules: false 
+    packager: 'npm'
+    excludeFiles: src/**/*.test.js
+
+functions:
+  hello:
+    handler: src/handler.hello
+plugins:
+  - serverless-webpack
