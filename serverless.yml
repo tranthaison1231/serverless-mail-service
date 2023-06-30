@@ -26,13 +26,5 @@ custom:
     keepNames: true
 
 functions:
-  sqsMessageExecution:
-    handler: src/handlers/sqsMessageExecution.handler
-    timeout: 900
-    events:
-      - sqs:
-          arn:
-            Fn::GetAtt:
-              - MessageQueue
-              - Arn
+  - ${file(./resources/lambdas/worker.yml)}
 
